@@ -59,9 +59,9 @@ class Welcome(commands.Cog):
         draw.ellipse((0, 0, 128, 128), fill=255)
         avatar.putalpha(mask)
 
-        # Placement avatar (centré horizontalement)
+        # Placement avatar (au niveau du rond rouge)
         avatar_x = (background.width - avatar.width) // 2
-        avatar_y = 50
+        avatar_y = 300  # Ajuste cette valeur selon ton image
         background.paste(avatar, (avatar_x, avatar_y), avatar)
 
         # Texte en dessous
@@ -73,7 +73,6 @@ class Welcome(commands.Cog):
 
         text = f"Welcome {member.name}!"
 
-        # Calcul de la taille du texte
         try:
             bbox = draw.textbbox((0, 0), text, font=font)
             text_width = bbox[2] - bbox[0]
