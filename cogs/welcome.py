@@ -6,7 +6,7 @@ import io
 import os
 
 WELCOME_CHANNEL_ID = 1437641570357743618
-BACKGROUND_IMAGE_PATH = "assets/welcome_bg.png.jpg"  # Ton image finale
+BACKGROUND_IMAGE_PATH = "assets/welcome_bg.png.jpg"
 
 class Welcome(commands.Cog):
     def __init__(self, bot):
@@ -61,15 +61,15 @@ class Welcome(commands.Cog):
         draw_mask.ellipse((0, 0, 128, 128), fill=255)
         avatar.putalpha(mask)
 
-        # Placement avatar (centré sur le poing rouge)
-        avatar_x = 230 - avatar.width // 2
+        # Placement avatar (légèrement à gauche du poing rouge)
+        avatar_x = 210 - avatar.width // 2  # ← décalé vers la gauche
         avatar_y = 180 - avatar.height // 2
         background.paste(avatar, (avatar_x, avatar_y), avatar)
 
         # Texte
         draw = ImageDraw.Draw(background)
         try:
-            font = ImageFont.truetype("arial.ttf", 40)
+            font = ImageFont.truetype("arial.ttf", 54)  # ← plus gros
         except:
             font = ImageFont.load_default()
 
