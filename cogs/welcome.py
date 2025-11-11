@@ -72,7 +72,15 @@ class Welcome(commands.Cog):
             font = ImageFont.load_default()
 
         text = f"Welcome {member.name}!"
-        text_width, text_height = draw.textsize(text, font=font)
+
+        # Calcul de la taille du texte
+        try:
+            bbox = draw.textbbox((0, 0), text, font=font)
+            text_width = bbox[2] - bbox[0]
+            text_height = bbox[3] - bbox[1]
+        except AttributeError:
+            text_width, text_height = font.getsize(text)
+
         text_x = (background.width - text_width) // 2
         text_y = avatar_y + avatar.height + 20
 
