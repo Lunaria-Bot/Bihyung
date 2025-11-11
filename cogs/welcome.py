@@ -5,7 +5,7 @@ import aiohttp
 import io
 
 WELCOME_CHANNEL_ID = 1437641570357743618
-BACKGROUND_IMAGE_URL = "https://i.imgur.com/1X1X1X1.png"  # Remplace par le lien direct de l'image, pas la page imgur
+BACKGROUND_IMAGE_URL = "https://i.imgur.com/GtuEeuU.jpeg"  # Remplace par le lien direct de l'image, pas la page imgur
 
 class Welcome(commands.Cog):
     def __init__(self, bot):
