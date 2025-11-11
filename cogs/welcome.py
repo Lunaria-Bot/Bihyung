@@ -61,9 +61,9 @@ class Welcome(commands.Cog):
         draw_mask.ellipse((0, 0, 128, 128), fill=255)
         avatar.putalpha(mask)
 
-        # Placement avatar (ajusté pour ton image)
+        # Placement avatar (ajusté au cercle rouge)
         avatar_x = (background.width - avatar.width) // 2
-        avatar_y = 220
+        avatar_y = 140  # ← Ajusté pour correspondre au cercle rouge
         background.paste(avatar, (avatar_x, avatar_y), avatar)
 
         # Texte
