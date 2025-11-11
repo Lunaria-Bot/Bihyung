@@ -6,7 +6,7 @@ import io
 import os
 
 WELCOME_CHANNEL_ID = 1437641570357743618
-BACKGROUND_IMAGE_PATH = "assets/welcome_bg.png.jpg"
+BACKGROUND_IMAGE_PATH = "assets/welcome_bg.png"  # Assure-toi que ce fichier existe
 
 class Welcome(commands.Cog):
     def __init__(self, bot):
@@ -46,7 +46,6 @@ class Welcome(commands.Cog):
         print(f"[SUCCESS] Message de bienvenue envoyé à {member.name}")
 
     async def create_welcome_image(self, member):
-        # Avatar
         async with aiohttp.ClientSession() as session:
             async with session.get(member.display_avatar.url) as resp:
                 avatar_bytes = await resp.read()
@@ -60,16 +59,24 @@ class Welcome(commands.Cog):
         draw.ellipse((0, 0, 128, 128), fill=255)
         avatar.putalpha(mask)
 
-        # Placement avatar
-        background.paste(avatar, (50, 50), avatar)
+        # Placement avatar (centré horizontalement)
+        avatar_x = (background.width - avatar.width) // 2
+        avatar_y = 50
+        background.paste(avatar, (avatar_x, avatar_y), avatar)
 
-        # Texte
+        # Texte en dessous
         draw = ImageDraw.Draw(background)
         try:
-            font = ImageFont.truetype("arial.ttf", 32)
+            font = ImageFont.truetype("arial.ttf", 48)
         except:
             font = ImageFont.load_default()
-        draw.text((200, 60), f"Welcome {member.name}!", fill="white", font=font)
+
+        text = f"Welcome {member.name}!"
+        text_width, text_height = draw.textsize(text, font=font)
+        text_x = (background.width - text_width) // 2
+        text_y = avatar_y + avatar.height + 20
+
+        draw.text((text_x, text_y), text, fill="white", font=font)
 
         # Sauvegarde
         buffer = io.BytesIO()
