@@ -55,8 +55,8 @@ class Welcome(commands.Cog):
 
         # Cercle pour avatar
         mask = Image.new("L", avatar.size, 0)
-        draw = ImageDraw.Draw(mask)
-        draw.ellipse((0, 0, 128, 128), fill=255)
+        draw_mask = ImageDraw.Draw(mask)
+        draw_mask.ellipse((0, 0, 128, 128), fill=255)
         avatar.putalpha(mask)
 
         # Placement avatar
@@ -87,6 +87,8 @@ class Welcome(commands.Cog):
         draw.text((text_x + 2, text_y + 2), text, fill="black", font=font)
         # Texte blanc
         draw.text((text_x, text_y), text, fill="white", font=font)
+
+        print(f"[DRAW] Texte '{text}' placé à ({text_x}, {text_y})")
 
         buffer = io.BytesIO()
         background.save(buffer, format="PNG")
