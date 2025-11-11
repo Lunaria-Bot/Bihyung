@@ -5,7 +5,7 @@ import aiohttp
 import io
 
 WELCOME_CHANNEL_ID = 1437641570357743618
-BACKGROUND_IMAGE_URL = "https://i.imgur.com/GtuEeuU.jpeg"  # Remplace par le lien direct de l'image, pas la page imgur
+BACKGROUND_IMAGE_URL = "https://i.imgur.com/GtuEeuU.jpeg"
 
 class Welcome(commands.Cog):
     def __init__(self, bot):
@@ -13,18 +13,25 @@ class Welcome(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
+        print(f"[WELCOME] Nouveau membre détecté : {member.name}")
         await self.send_welcome(member)
 
     @commands.command(name="simulate_join")
     async def simulate_join(self, ctx):
+        print(f"[SIMULATION] Simulation de join pour : {ctx.author.name}")
         await self.send_welcome(ctx.author)
 
     async def send_welcome(self, member):
         channel = member.guild.get_channel(WELCOME_CHANNEL_ID)
         if not channel:
+            print("[ERROR] Salon de bienvenue introuvable.")
             return
 
-        welcome_file = await self.create_welcome_image(member)
+        try:
+            welcome_file = await self.create_welcome_image(member)
+        except Exception as e:
+            print(f"[ERROR] Échec de la génération d'image : {e}")
+            return
 
         embed = discord.Embed(
             title=f"Hey {member.name} ! 👀 Welcome to {member.guild.name} 👩‍🏭",
@@ -35,13 +42,12 @@ class Welcome(commands.Cog):
         embed.set_thumbnail(url=member.display_avatar.url)
 
         await channel.send(file=welcome_file, embed=embed)
+        print(f"[SUCCESS] Message de bienvenue envoyé à {member.name}")
 
     async def create_welcome_image(self, member):
         async with aiohttp.ClientSession() as session:
-            # Image de fond
             async with session.get(BACKGROUND_IMAGE_URL) as resp:
                 bg_bytes = await resp.read()
-            # Avatar
             async with session.get(member.display_avatar.url) as resp:
                 avatar_bytes = await resp.read()
 
