@@ -3,9 +3,10 @@ from discord.ext import commands
 from PIL import Image, ImageDraw, ImageFont
 import aiohttp
 import io
+import os
 
 WELCOME_CHANNEL_ID = 1437641570357743618
-BACKGROUND_IMAGE_URL = "https://i.imgur.com/GtuEeuU.jpeg"
+BACKGROUND_IMAGE_PATH = "assets/welcome_bg.png.jpg"
 
 class Welcome(commands.Cog):
     def __init__(self, bot):
@@ -45,13 +46,12 @@ class Welcome(commands.Cog):
         print(f"[SUCCESS] Message de bienvenue envoyé à {member.name}")
 
     async def create_welcome_image(self, member):
+        # Avatar
         async with aiohttp.ClientSession() as session:
-            async with session.get(BACKGROUND_IMAGE_URL) as resp:
-                bg_bytes = await resp.read()
             async with session.get(member.display_avatar.url) as resp:
                 avatar_bytes = await resp.read()
 
-        background = Image.open(io.BytesIO(bg_bytes)).convert("RGBA")
+        background = Image.open(BACKGROUND_IMAGE_PATH).convert("RGBA")
         avatar = Image.open(io.BytesIO(avatar_bytes)).convert("RGBA").resize((128, 128))
 
         # Cercle pour avatar
