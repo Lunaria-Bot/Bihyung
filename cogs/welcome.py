@@ -13,7 +13,7 @@ class Welcome(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        print(f"[WELCOME] Nouveau membre détecté : {member.name}")
+        print(f"[JOIN] {member.name} a rejoint le serveur.")
         await self.send_welcome(member)
 
     @commands.command(name="simulate_join")
