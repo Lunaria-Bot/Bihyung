@@ -9,21 +9,55 @@ class Rules(commands.Cog):
     async def show_rules(self, ctx):
         embed = discord.Embed(
             title="📜 Server Rules",
-            description=(
-                "1️⃣ No obscene or explicit content.\n"
-                "2️⃣ Treat everyone with respect.\n"
-                "3️⃣ Harassment, bullying or any kind of hate speech will not be tolerated.\n"
-                "4️⃣ No sensitive topics like race, religion, politics, etc.\n"
-                "5️⃣ Use the appropriate channel to discuss topics.\n"
-                "6️⃣ Advertising without explicit permission is not allowed — including through DMs.\n"
-                "7️⃣ Refrain from engaging in drama or arguments — take it to DMs.\n"
-                "8️⃣ Speak English so we can all understand each other.\n"
-                "9️⃣ No NSFW content.\n"
-                "🔟 Lastly, follow [Discord's Community Guidelines](https://discordapp.com/guidelines)."
-            ),
-            color=discord.Color.red()
+            color=discord.Color.dark_red()
         )
-        embed.set_footer(text="Violation of these rules may result in warnings or bans.")
+
+        embed.add_field(
+            name="🚫 Content Restrictions",
+            value=(
+                "• No obscene or explicit content\n"
+                "• No NSFW content\n"
+                "• No sensitive topics (race, religion, politics)"
+            ),
+            inline=False
+        )
+
+        embed.add_field(
+            name="🤝 Respect & Behavior",
+            value=(
+                "• Treat everyone with respect\n"
+                "• No harassment, bullying, or hate speech\n"
+                "• Avoid drama or arguments — take it to DMs"
+            ),
+            inline=False
+        )
+
+        embed.add_field(
+            name="📌 Channel Usage",
+            value=(
+                "• Use appropriate channels for each topic\n"
+                "• Speak English so everyone can understand"
+            ),
+            inline=False
+        )
+
+        embed.add_field(
+            name="📢 Advertising",
+            value=(
+                "• No advertising without explicit permission\n"
+                "• This includes unsolicited DMs"
+            ),
+            inline=False
+        )
+
+        embed.add_field(
+            name="📎 Community Guidelines",
+            value="[Follow Discord's Community Guidelines](https://discordapp.com/guidelines)",
+            inline=False
+        )
+
+        embed.set_footer(text="Violating these rules may result in warnings, mutes, or bans. Be cool 😎")
+
         await ctx.send(embed=embed)
 
 async def setup(bot):
