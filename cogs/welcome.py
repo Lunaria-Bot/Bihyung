@@ -82,7 +82,7 @@ class Welcome(commands.Cog):
         except AttributeError:
             text_width, text_height = font.getsize(text)
 
-        text_x = (background.width - text_width) // 2
+        text_x = avatar_x + (avatar.width - text_width) // 2
         text_y = avatar_y + avatar.height + 10
 
         # Sécurité : ne pas dépasser le bas de l’image
