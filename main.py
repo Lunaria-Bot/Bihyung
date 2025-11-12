@@ -37,7 +37,13 @@ async def main():
             await bot.load_extension("cogs.rules")
             print("[COG] cogs.rules chargé avec succès.")
         except Exception as e:
-            print(f"[ERROR] Échec du chargement du cog rules : {e}")    
+            print(f"[ERROR] Échec du chargement du cog rules : {e}")
+        
+        try:
+            await bot.load_extension("cogs.features")
+            print("[COG] cogs.features chargé avec succès.")
+        except Exception as e:
+            print(f"[ERROR] Échec du chargement du cog features : {e}")    
 
         await bot.start(token)
 
