@@ -6,7 +6,7 @@ import io
 import os
 
 WELCOME_CHANNEL_ID = 1437641570357743618
-BACKGROUND_IMAGE_PATH = "assets/welcome_bg.png.jpeg"
+BACKGROUND_IMAGE_PATH = "assets/welcome_bg.png.jpg"
 
 class Welcome(commands.Cog):
     def __init__(self, bot):
