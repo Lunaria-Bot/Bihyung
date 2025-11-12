@@ -9,7 +9,7 @@ class Features(commands.Cog):
     async def show_features(self, ctx):
         embed = discord.Embed(
             title="🛠️ Mazoku Bot Custom Features",
-            description="Here are the current features available with Mazoku Bot Custom:",
+            description="Here are the current features available for Mazoku Bot Custom",
             color=discord.Color.dark_purple()
         )
 
