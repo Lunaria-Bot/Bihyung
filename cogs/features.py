@@ -16,8 +16,8 @@ class Features(commands.Cog):
         embed.add_field(
             name="✨ Features",
             value=(
-                "<a:white_arrow:1438158066028777523> High Tier ping : Free\n"
-                "<a:white_arrow:1438158066028777523> Summon Reminder : Free\n"
+                "<a:white_arrow:1438158066028777523> High Tier ping \n"
+                "<a:white_arrow:1438158066028777523> Summon Reminder \n"
                 "<a:white_arrow:1438158066028777523> Vote/Daily Reminder\n"
                 "<a:white_arrow:1438158066028777523> Frame Testing\n"
                 "<a:white_arrow:1438158066028777523> Auction System\n"
