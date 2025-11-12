@@ -31,7 +31,7 @@ async with bot:
             await bot.load_extension("cogs.formules")
             print("[COG] cogs.formules chargé avec succès.")
         except Exception as e:
-            print(f"[ERROR] Échec du chargement du cog formules : {e}"
+            print(f"[ERROR] Échec du chargement du cog formules : {e}")
     
         await bot.start(token)
 
