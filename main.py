@@ -26,13 +26,13 @@ async def main():
             print("[COG] cogs.welcome chargé avec succès.")
         except Exception as e:
             print(f"[ERROR] Échec du chargement du cog welcome : {e}")
-async with bot:
+
         try:
             await bot.load_extension("cogs.formules")
             print("[COG] cogs.formules chargé avec succès.")
         except Exception as e:
             print(f"[ERROR] Échec du chargement du cog formules : {e}")
-    
+
         await bot.start(token)
 
 asyncio.run(main())
