@@ -18,8 +18,9 @@ class Features(commands.Cog):
             value=(
                 "<a:white_arrow:1438158066028777523> High Tier ping \n"
                 "<a:white_arrow:1438158066028777523> Summon Reminder \n"
-                "<a:white_arrow:1438158066028777523> Vote/Daily Reminder\n"
-                "<a:white_arrow:1438158066028777523> Frame Testing\n"
+                "<a:white_arrow:1438158066028777523> Daily Reminder\n"
+                "<a:white_arrow:1438158066028777523>Vote Reminder (Not yet available)"
+                "<a:white_arrow:1438158066028777523> Frame Testing (Not yet available)\n"
                 "<a:white_arrow:1438158066028777523> Auction System\n"
                 "<a:white_arrow:1438158066028777523> Shop System + Currency System\n"
                 "<a:white_arrow:1438158066028777523> Market System\n"
