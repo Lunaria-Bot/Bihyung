@@ -19,7 +19,7 @@ class Features(commands.Cog):
                 "<a:white_arrow:1438158066028777523> High Tier ping \n"
                 "<a:white_arrow:1438158066028777523> Summon Reminder \n"
                 "<a:white_arrow:1438158066028777523> Daily Reminder\n"
-                "<a:white_arrow:1438158066028777523> Vote Reminder (Not yet available)\n"
+                "<a:white_arrow:1438158066028777523> Vote Reminder \n"
                 "<a:white_arrow:1438158066028777523> Frame Testing (Not yet available)\n"
                 "<a:white_arrow:1438158066028777523> Auction System\n"
                 "<a:white_arrow:1438158066028777523> Shop System + Currency System\n"
